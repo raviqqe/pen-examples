@@ -1,0 +1,3 @@
+Foo = \(x number) number {
+	x
+}
