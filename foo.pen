@@ -1,3 +1,7 @@
 Foo = \(x number) number {
   x
 }
+
+Bar = \(x number) number {
+  x
+}
