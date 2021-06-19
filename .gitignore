@@ -2,4 +2,5 @@
 *.bc
 *.json
 *.ll
+.ninja_log
 .pen
