@@ -1,6 +1,1 @@
-!pen.json
-*.bc
-*.json
-*.ll
-.ninja_log
 .pen
