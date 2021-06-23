@@ -1,5 +1,3 @@
-import Bar.Foo
-
 Foo = \(x number) number {
   x
 }

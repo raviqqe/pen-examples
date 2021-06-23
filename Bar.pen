@@ -1,5 +1,5 @@
 import .Foo
 
 Bar = \(x number) number {
-	x
+  Foo(x)
 }
