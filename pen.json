@@ -1,3 +1,5 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "Bar": "file:///home/raviqqe/tmp/pen/bar"
+  }
 }
