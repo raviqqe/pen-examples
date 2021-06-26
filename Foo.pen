@@ -1,3 +1,5 @@
-Foo = \() number {
-  1 + 2 - 3 * 4 / 5
+type r { x number, y number }
+
+Foo = \(x r) number {
+  r{...x, y: 42}.y
 }
