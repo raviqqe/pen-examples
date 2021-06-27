@@ -1,3 +1,7 @@
-Foo = \() number {
-  42
+f = \(x any) none {
+  if x = x; none {
+    none
+  } else {
+    none
+  }
 }

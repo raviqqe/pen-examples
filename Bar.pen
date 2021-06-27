@@ -1,5 +1,0 @@
-import .Foo
-
-Bar = \() number {
-  Foo.Foo()
-}
