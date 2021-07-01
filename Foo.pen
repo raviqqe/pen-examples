@@ -1,6 +1,6 @@
-f = \(x any) none {
+f = \(x any) none | error {
   if x = x; none {
-    none
+    error(42)
   } else {
     none
   }
