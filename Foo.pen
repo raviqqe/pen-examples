@@ -1,4 +1,4 @@
 export foreign f =
-  \(x number) number {
-    x
+  \(x number) string {
+    "foo"
   }
