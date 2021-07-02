@@ -1,7 +1,4 @@
-f = \(x any) none | error {
-  if x = x; none {
-    error(42)
-  } else {
-    none
+export foreign f =
+  \(x number) number {
+    x
   }
-}
