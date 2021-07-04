@@ -1,3 +1,5 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "System": "file://pen-root/lib/os"
+  }
 }
