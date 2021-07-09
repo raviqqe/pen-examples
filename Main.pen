@@ -1,11 +1,5 @@
 import System'Os
 
-f = \() none {
-  f()
-}
-
 main = \(os Os'Os) number {
-  f()
-
-  0
+  main(os)
 }
