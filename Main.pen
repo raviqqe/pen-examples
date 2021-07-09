@@ -1,0 +1,5 @@
+import System'Os
+
+main = \(os Os'Os) number {
+	42
+}
