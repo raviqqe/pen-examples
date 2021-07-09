@@ -1,7 +1,11 @@
 import System'Os
 
-main = \(os Os'Os) number {
-  Os'FdWrite(os, Os'StdOut(), "Hello, world!\n")
+f = \() none {
+  f()
+}
 
-  42
+main = \(os Os'Os) number {
+  f()
+
+  0
 }
