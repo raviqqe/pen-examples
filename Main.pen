@@ -1,5 +1,21 @@
 import System'Os
 
+f = \() none | error {
+  error("oh no")
+}
+
+g = \(x number) number | error {
+  if f()? == none {
+    0
+  } else {
+    42
+  }
+}
+
+h = \(x number | error) number | error {
+  x? + 1
+}
+
 main = \(os Os'Os) number {
   main(os)
 }
