@@ -16,6 +16,10 @@ h = \(x number | error) number | error {
   x? + 1
 }
 
+i = \(xs [number]) [number | none] {
+  [number | none; ...xs]
+}
+
 main = \(os Os'Os) number {
   main(os)
 }
