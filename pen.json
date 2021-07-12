@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "Core": "file://pen-root/lib/core",
     "System": "file://pen-root/lib/os"
   }
 }
