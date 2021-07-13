@@ -1,1 +1,6 @@
 import 'Foo
+import Core'String
+
+f = \() string {
+	String'Join([string; "", ""])
+}
