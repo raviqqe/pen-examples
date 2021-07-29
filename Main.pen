@@ -21,5 +21,7 @@ i = \(xs [number]) [number | none] {
 }
 
 main = \(os Os'Os) number {
-  main(os)
+  f = Os'OpenFile(os, "./Foo.pen")
+
+  0
 }
