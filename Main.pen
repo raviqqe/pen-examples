@@ -24,6 +24,9 @@ i = \(xs [number]) [number | none] {
 command = \(os Os'Os) none | error {
   f = Os'OpenFile(os, "./Foo.pen")?
   d = Os'ReadFile(os, f)?
+  f = Os'OpenFileWithOptions(os, "foo.txt",
+  Os'OpenFileOptions{...Os'DefaultOpenFileOptions(), Create: true, Write: true, Truncate: true})?
+  Os'WriteFile(os, f, d)?
 
   none
 }
