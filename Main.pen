@@ -1,4 +1,5 @@
 import System'Os
+import Core'Number
 
 f = \() none | error {
   error("oh no")
@@ -20,8 +21,25 @@ i = \(xs [number]) [number | none] {
   [number | none; ...xs]
 }
 
-main = \(os Os'Os) number {
-  f = Os'OpenFile(os, "./Foo.pen")
+command = \(os Os'Os) none | error {
+  f = Os'OpenFile(
+    os,
+    "./Foo.pen",
+    Os'OpenFileOptions{...Os'DefaultOpenFileOptions(), Write: true},
+  )?
+  Os'WriteFile(os, f, "foo")?
 
-  0
+  none
+}
+
+main = \(os Os'Os) number {
+  if r = command(os); none {
+    0
+  } else {
+    if x = source(r); number {
+      1
+    } else {
+      1
+    }
+  }
 }
