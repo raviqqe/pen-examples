@@ -22,11 +22,7 @@ i = \(xs [number]) [number | none] {
 }
 
 command = \(os Os'Os) none | error {
-  f = Os'OpenFile(
-    os,
-    "./Foo.pen",
-    Os'OpenFileOptions{...Os'DefaultOpenFileOptions(), Write: true},
-  )?
+  f = Os'OpenWriteFile(os, "./Foo.pen")?
   Os'WriteFile(os, f, "foo")?
 
   none
