@@ -1,5 +1,6 @@
 import System'Os
 import Core'Number
+import Core'String
 
 f = \() none | error {
   error("oh no")
@@ -22,8 +23,8 @@ i = \(xs [number]) [number | none] {
 }
 
 command = \(os Os'Os) none | error {
-  f = Os'OpenFile(os, "./Foo.pen")?
-  d = Os'ReadFile(os, Os'StdIn())?
+  f = Os'OpenFile(os, "./foo.txt")?
+  d = Os'ReadFile(os, f)?
   f = Os'OpenFileWithOptions(
     os,
     "foo.txt",
@@ -40,6 +41,10 @@ main = \(os Os'Os) number {
     0
   } else {
     if x = source(r); number {
+      1
+    } else if string {
+      Os'WriteFile(os, Os'StdOut(), String'Join([string; x, "\n"]))
+
       1
     } else {
       1
