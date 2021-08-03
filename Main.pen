@@ -23,7 +23,7 @@ i = \(xs [number]) [number | none] {
 
 command = \(os Os'Os) none | error {
   f = Os'OpenFile(os, "./Foo.pen")?
-  d = Os'ReadFile(os, f)?
+  d = Os'ReadFile(os, Os'StdIn())?
   f = Os'OpenFileWithOptions(
     os,
     "foo.txt",
