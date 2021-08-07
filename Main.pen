@@ -37,7 +37,7 @@ command = \(os Os'Os) none | error {
 }
 
 main = \(os Os'Os) number {
-  Os'WriteFile(os, Os'StdOut(), String'Join(Os'Arguments()))
+  Os'WriteFile(os, Os'StdOut(), String'Join(Os'Arguments(), " "))
 
   0
 }
