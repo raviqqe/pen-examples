@@ -23,21 +23,24 @@ i = \(xs [number]) [number | none] {
 }
 
 command = \(os Os'Os) none | error {
-  f = Os'OpenFile(os, "./foo.txt")?
+  f = Os'OpenFile(os, "./pen.json")?
   d = Os'ReadFile(os, f)?
   f = Os'OpenFileWithOptions(
     os,
-    "foo.txt",
+    "foo.json",
     Os'OpenFileOptions{...Os'DefaultOpenFileOptions(), Create: true, Write: true, Truncate: true},
   )?
   Os'WriteFile(os, f, d)?
   Os'WriteFile(os, Os'StdOut(), d)?
+  Os'WriteFile(os, Os'StdOut(), String'Join(Os'ReadDirectory(os, ".")?, ","))?
 
   none
 }
 
 main = \(os Os'Os) number {
-  Os'WriteFile(os, Os'StdOut(), String'Join(Os'Arguments(), " "))
-
-  0
+  if _ = command(os); none {
+    0
+  } else {
+    1
+  }
 }
