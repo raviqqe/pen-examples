@@ -1,2 +1,4 @@
+*.json
+!pen.json
 .pen
 app
