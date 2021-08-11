@@ -33,6 +33,7 @@ command = \(os Os'Os) none | error {
   Os'WriteFile(os, f, d)?
   Os'WriteFile(os, Os'StdOut(), d)?
   Os'WriteFile(os, Os'StdOut(), String'Join(Os'ReadDirectory(os, ".")?, ","))?
+  Os'CreateDirectory(os, "foo")?
 
   none
 }
