@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -ex
 
 rm -rf .pen foo.json foo
 pen build
