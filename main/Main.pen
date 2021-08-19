@@ -23,15 +23,17 @@ i = \(xs [number]) [number | none] {
 }
 
 command = \(ctx Os'Context) none | error {
+  Os'WriteFile(ctx, Os'StdOut(), "Hello, world!\n")?
+
   f = Os'OpenFile(ctx, "./pen.json")?
-  d = Os'ReadFile(ctx, f)?
+  s = Os'ReadFile(ctx, f)?
   f = Os'OpenFileWithOptions(
     ctx,
     "foo.json",
     Os'OpenFileOptions{...Os'DefaultOpenFileOptions(), Create: true, Write: true, Truncate: true},
   )?
-  Os'WriteFile(ctx, f, d)?
-  Os'WriteFile(ctx, Os'StdOut(), d)?
+  Os'WriteFile(ctx, f, s)?
+  Os'WriteFile(ctx, Os'StdOut(), s)?
   Os'WriteFile(ctx, Os'StdOut(), String'Join(Os'ReadDirectory(ctx, ".")?, "\n"))?
   Os'CreateDirectory(ctx, "foo")?
   Os'RemoveDirectory(ctx, "foo")?
