@@ -2,7 +2,7 @@ import Core'Number
 
 mapNumbersToStrings = \(ns [number]) [string] {
   if [n, ...ns] = ns {
-    [string; Number'String(n), ...mapNumbersToStrings(ns)]
+    [string; Number'String(n()), ...mapNumbersToStrings(ns)]
   } else {
     [string;]
   }
@@ -11,7 +11,7 @@ mapNumbersToStrings = \(ns [number]) [string] {
 mapNumbersToStringsLazily = \(ns [number]) [string] {
   [string;
     ...if [n, ...ns] = ns {
-      [string; Number'String(n), ...mapNumbersToStringsLazily(ns)]
+      [string; Number'String(n()), ...mapNumbersToStringsLazily(ns)]
     } else {
       [string;]
     }
