@@ -7,3 +7,13 @@ mapNumbersToStrings = \(ns [number]) [string] {
     [string;]
   }
 }
+
+mapNumbersToStringsLazily = \(ns [number]) [string] {
+  [string;
+    ...if [n, ...ns] = ns {
+      [string; Number'String(n), ...convertList(ns)]
+    } else {
+      [string;]
+    }
+  ]
+}
