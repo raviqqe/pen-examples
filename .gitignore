@@ -1,4 +1,7 @@
+*.clj
+*.i
 *.json
+*.o
 !pen.json
 .pen
 app
