@@ -1,0 +1,13 @@
+import System'Os
+
+main = \(ctx Os'Context) number {
+  #Os'WriteFile(ctx, Os'StdOut(), "START\n")
+
+  if [x, ...xs] = [number; ...[number; 0]] {
+    #Os'WriteFile(ctx, Os'StdOut(), "END!\n")
+
+    0
+  } else {
+    1
+  }
+}
