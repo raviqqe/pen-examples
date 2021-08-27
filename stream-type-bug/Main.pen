@@ -1,5 +1,79 @@
 import System'Os
 
+type myList {
+  node \() Node | none
+}
+
+type Node {
+  first \() any
+  rest \() Node | none
+}
+
+type FirstRest {
+  first \() any
+  rest myList
+}
+
+first = \(fr FirstRest) \() any {
+  fr.first
+}
+
+rest = \(fr FirstRest) myList {
+  fr.rest
+}
+
+firstRest = \(l myList) FirstRest | none {
+  if n = l.node(); Node {
+    FirstRest{
+      first: n.first,
+      rest: myList{node: n.rest},
+    }
+  } else {
+    none
+  }
+}
+
+emptyList = \() myList {
+  myList{node: \() Node | none { none }}
+}
+
+getListLength = \(l myList) number {
+  getLengthFromNode(l.node())
+}
+
+getLengthFromNode = \(n Node | none) number {
+  if n = n; Node {
+    1 + getLengthFromNode(n.rest())
+  } else {
+    0
+  }
+}
+
+prependToList = \(x \() any, l myList) myList {
+  myList{node: \() Node | none { prependToNode(x, l.node) }}
+}
+
+prependToNode = \(x \() any, n \() Node | none) Node {
+  Node{
+    first: x,
+    rest: n,
+  }
+}
+
+concatenateLists = \(x myList, y myList) myList {
+  myList{node: concatenateNodes(x.node, y.node)}
+}
+
+concatenateNodes = \(x \() Node | none, y \() Node | none) \() Node | none {
+  \() Node | none {
+    if x = x(); Node {
+      prependToNode(x.first, concatenateNodes(x.rest, y))
+    } else {
+      y()
+    }
+  }
+}
+
 main = \(ctx Os'Context) number {
   #Os'WriteFile(ctx, Os'StdOut(), "START\n")
 
