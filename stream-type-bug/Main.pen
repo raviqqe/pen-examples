@@ -3,7 +3,7 @@ import System'Os
 main = \(ctx Os'Context) number {
   #Os'WriteFile(ctx, Os'StdOut(), "START\n")
 
-  if [x, ...xs] = [number; ...[number; 0]] {
+  if [x, ...xs] = [none; ...[none; none]] {
     #Os'WriteFile(ctx, Os'StdOut(), "END!\n")
 
     0
