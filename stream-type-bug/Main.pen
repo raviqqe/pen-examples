@@ -75,13 +75,18 @@ concatenateNodes = \(x \() Node | none, y \() Node | none) \() Node | none {
 }
 
 main = \(ctx Os'Context) number {
-  #Os'WriteFile(ctx, Os'StdOut(), "START\n")
+  l = concatenateLists(emptyList(),prependToList(\()any{none},emptyList()))
 
-  if [x, ...xs] = [none; ...[none; none]] {
-    #Os'WriteFile(ctx, Os'StdOut(), "END!\n")
-
-    0
+  if x = firstRest(l); FirstRest {
+    if x = first(x)(); none {
+      Os'WriteFile(ctx, Os'StdOut(), "Hello!\n")
+      x
+    } else {
+      none
+    }
   } else {
-    1
+    none
   }
+
+  0
 }
