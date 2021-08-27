@@ -74,6 +74,14 @@ concatenateNodes = \(x \() Node | none, y \() Node | none) \() Node | none {
   }
 }
 
+c = \() none {
+  if [x, ...xs] = [none; ...[none; none]] {
+    none
+  } else {
+    none
+  }
+}
+
 main = \(ctx Os'Context) number {
   l = concatenateLists(emptyList(),prependToList(\()any{none},emptyList()))
 
