@@ -1,7 +1,6 @@
 import System'Os
 
 type Node {
-  first \() any
   rest List
 }
 
@@ -21,7 +20,7 @@ concatenateLists = \(x List) List {
 main = \(ctx Os'Context) number {
   concatenateLists(
     \() Node | none {
-      Node{first: \() any { none }, rest: \() Node | none { none }}
+      Node{rest: \() Node | none { none }}
     },
   )()
 
