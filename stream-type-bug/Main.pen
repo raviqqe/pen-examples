@@ -74,33 +74,8 @@ concatenateNodes = \(x \() Node | none, y \() Node | none) \() Node | none {
   }
 }
 
-f = \() none {
-  if [x, ...xs] = [none; ...[none; none]] {
-    none
-  } else {
-    none
-  }
-}
-
-g = \(ctx Os'Context) none {
-  l = _concatenateLists(_emptyList(),_prependToList(\()any{none},_emptyList()))
-
-  if x = _firstRest(l); _FirstRest {
-    if x = _first(x)(); none {
-      Os'WriteFile(ctx, Os'StdOut(), "Hello!\n")
-      x
-    } else {
-      none
-    }
-  } else {
-    none
-  }
-}
-
 main = \(ctx Os'Context) number {
-  f()
-  g(ctx)
-  l = concatenateLists(emptyList(),prependToList(\()any{none},emptyList()))
+  l = concatenateLists(prependToList(\()any{none},emptyList()),emptyList())
 
   if x = firstRest(l); FirstRest {
     if x = first(x)(); none {
