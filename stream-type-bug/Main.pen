@@ -7,10 +7,10 @@ type Node {
 
 type List = \() Node | none
 
-concatenateLists = \(x List, y List) List {
+concatenateLists = \(x List) List {
   \() Node | none {
     if z = x(); Node {
-      concatenateLists(z.rest, y)
+      concatenateLists(z.rest)
       none
     } else {
       none
@@ -23,7 +23,6 @@ main = \(ctx Os'Context) number {
     \() Node | none {
       Node{first: \() any { none }, rest: \() Node | none { none }}
     },
-    \() Node | none { none },
   )()
 
   0
