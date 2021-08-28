@@ -1,28 +1,20 @@
 import System'Os
 
-type Node {
-  rest List
-}
-
-type List = \() Node | none
-
-concatenateLists = \(x List) List {
-  \() Node | none {
-    if z = x(); Node {
-      concatenateLists(z.rest)
-      none
+f = \(x number) \() number {
+  \() number {
+    if x == 0 {
+      0
     } else {
-      none
+      # This should have no effect.
+      # But it gets into an infinite loop because it's actually calling the most inner closure!
+      f(x - 1)
+      0
     }
   }
 }
 
 main = \(ctx Os'Context) number {
-  concatenateLists(
-    \() Node | none {
-      Node{rest: \() Node | none { none }}
-    },
-  )()
+  f(1)()
 
   0
 }
