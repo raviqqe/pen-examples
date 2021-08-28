@@ -1,37 +1,16 @@
 import System'Os
 
-type myList {
-  node \() Node | none
-}
-
 type Node {
   first \() any
-  rest \() Node | none
+  rest List
 }
 
-emptyList = \() myList {
-  myList{node: \() Node | none { none }}
-}
+type List = \() Node | none
 
-prependToList = \(x \() any, l myList) myList {
-  myList{node: \() Node | none { prependToNode(x, l.node) }}
-}
-
-prependToNode = \(x \() any, n \() Node | none) Node {
-  Node{
-    first: x,
-    rest: n,
-  }
-}
-
-concatenateLists = \(x myList, y myList) myList {
-  myList{node: concatenateNodes(x.node, y.node)}
-}
-
-concatenateNodes = \(x \() Node | none, y \() Node | none) \() Node | none {
+concatenateLists = \(x List, y List) List {
   \() Node | none {
     if z = x(); Node {
-      concatenateNodes(z.rest, y)
+      concatenateLists(z.rest, y)
       none
     } else {
       none
@@ -40,9 +19,14 @@ concatenateNodes = \(x \() Node | none, y \() Node | none) \() Node | none {
 }
 
 main = \(ctx Os'Context) number {
-  l = concatenateLists(prependToList(\()any{none},emptyList()),emptyList())
+  l = concatenateLists(
+    \() Node | none {
+      Node{first: \() any { none }, rest: \() Node | none { none }}
+    },
+    \() Node | none { none },
+  )
 
-  if x = l.node(); Node {
+  if x = l(); Node {
     if x = x.first(); none {
       Os'WriteFile(ctx, Os'StdOut(), "Hello!\n")
       x
