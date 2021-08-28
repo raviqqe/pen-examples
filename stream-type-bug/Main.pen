@@ -9,44 +9,8 @@ type Node {
   rest \() Node | none
 }
 
-type FirstRest {
-  first \() any
-  rest myList
-}
-
-first = \(fr FirstRest) \() any {
-  fr.first
-}
-
-rest = \(fr FirstRest) myList {
-  fr.rest
-}
-
-firstRest = \(l myList) FirstRest | none {
-  if n = l.node(); Node {
-    FirstRest{
-      first: n.first,
-      rest: myList{node: n.rest},
-    }
-  } else {
-    none
-  }
-}
-
 emptyList = \() myList {
   myList{node: \() Node | none { none }}
-}
-
-getListLength = \(l myList) number {
-  getLengthFromNode(l.node())
-}
-
-getLengthFromNode = \(n Node | none) number {
-  if n = n; Node {
-    1 + getLengthFromNode(n.rest())
-  } else {
-    0
-  }
 }
 
 prependToList = \(x \() any, l myList) myList {
@@ -66,10 +30,11 @@ concatenateLists = \(x myList, y myList) myList {
 
 concatenateNodes = \(x \() Node | none, y \() Node | none) \() Node | none {
   \() Node | none {
-    if x = x(); Node {
-      prependToNode(x.first, concatenateNodes(x.rest, y))
+    if z = x(); Node {
+      concatenateNodes(z.rest, y)
+      none
     } else {
-      y()
+      none
     }
   }
 }
@@ -77,8 +42,8 @@ concatenateNodes = \(x \() Node | none, y \() Node | none) \() Node | none {
 main = \(ctx Os'Context) number {
   l = concatenateLists(prependToList(\()any{none},emptyList()),emptyList())
 
-  if x = firstRest(l); FirstRest {
-    if x = first(x)(); none {
+  if x = l.node(); Node {
+    if x = x.first(); none {
       Os'WriteFile(ctx, Os'StdOut(), "Hello!\n")
       x
     } else {
