@@ -19,23 +19,12 @@ concatenateLists = \(x List, y List) List {
 }
 
 main = \(ctx Os'Context) number {
-  l = concatenateLists(
+  concatenateLists(
     \() Node | none {
       Node{first: \() any { none }, rest: \() Node | none { none }}
     },
     \() Node | none { none },
-  )
-
-  if x = l(); Node {
-    if x = x.first(); none {
-      Os'WriteFile(ctx, Os'StdOut(), "Hello!\n")
-      x
-    } else {
-      none
-    }
-  } else {
-    none
-  }
+  )()
 
   0
 }
