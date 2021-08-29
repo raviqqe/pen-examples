@@ -2,6 +2,6 @@
 
 set -ex
 
-rm -rf .pen app foo.json foo
+rm -rf .pen app
 pen build --target wasm32-wasi
 wasmtime --dir . --env PATH=$PATH -g app

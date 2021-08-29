@@ -1,13 +1,20 @@
 import System'Os
 
-main = \(ctx Os'Context) number {
-  #Os'WriteFile(ctx, Os'StdOut(), "START\n")
-
-  if [x, ...xs] = [none; ...[none; none]] {
-    #Os'WriteFile(ctx, Os'StdOut(), "END!\n")
-
-    0
-  } else {
-    1
+f = \(x number) \() number {
+  \() number {
+    if x == 0 {
+      0
+    } else {
+      # This should have no effect.
+      # But it gets into an infinite loop because it's actually calling the most inner closure!
+      f(x - 1)
+      0
+    }
   }
+}
+
+main = \(ctx Os'Context) number {
+  f(1)()
+
+  0
 }
