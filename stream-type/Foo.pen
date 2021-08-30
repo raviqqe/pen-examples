@@ -1,5 +1,7 @@
-Foo = \() none {
-  [none; none]
+Foo = \() none | error {
+  x = if true { none } else { error(none) }
+
+  [none; x?]
 
   none
 }
