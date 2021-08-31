@@ -1,0 +1,10 @@
+import Core'List
+import Core'Number
+import Core'String
+import System'Os
+
+main = \(ctx Os'Context) number {
+  Os'WriteFile(ctx, Os'StdOut(), Number'String(Number'Sum([number; 1, 2, 3])))
+
+  0
+}
