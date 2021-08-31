@@ -37,10 +37,11 @@ command = \(ctx Os'Context) none | error {
   Os'WriteFile(ctx, Os'StdOut(), String'Join(Os'ReadDirectory(ctx, ".")?, "\n"))?
   Os'CreateDirectory(ctx, "foo")?
   Os'RemoveDirectory(ctx, "foo")?
+  v = Os'EnvironmentVariable(ctx, "PATH")?
   Os'WriteFile(
     ctx,
     Os'StdOut(),
-    String'Join([string; Os'EnvironmentVariable(ctx, "PATH")?, "\n"], ""),
+    String'Join([string; v, "\n"], ""),
   )?
 
   none
