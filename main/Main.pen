@@ -48,9 +48,14 @@ command = \(ctx Os'Context) none | error {
 }
 
 main = \(ctx Os'Context) number {
-  if _ = command(ctx) as none {
+  if e = command(ctx) as none {
     0
   } else {
-    1
+    if s = source(e) as string {
+      Os'WriteFile(ctx, Os'StdOut(), s)
+      1
+    } else {
+      1
+    }
   }
 }
