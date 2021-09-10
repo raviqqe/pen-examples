@@ -52,7 +52,7 @@ main = \(ctx Os'Context) number {
     0
   } else {
     if s = source(e) as string {
-      Os'WriteFile(ctx, Os'StdOut(), s)
+      Os'WriteFile(ctx, Os'StdOut(), String'Join([string; s, "\n"]))
       1
     } else {
       1
