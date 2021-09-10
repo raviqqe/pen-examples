@@ -48,7 +48,7 @@ command = \(ctx Os'Context) none | error {
 }
 
 main = \(ctx Os'Context) number {
-  if _ = command(ctx); none {
+  if _ = command(ctx) as none {
     0
   } else {
     1
