@@ -1,3 +1,4 @@
+import System'Os'OpenFileOptions
 import System'Os
 import Core'Number
 import Core'String
@@ -30,7 +31,12 @@ command = \(ctx Os'Context) none | error {
   f = Os'OpenFileWithOptions(
     ctx,
     "foo.json",
-    Os'OpenFileOptions{...Os'DefaultOpenFileOptions(), Create: true, Write: true, Truncate: true},
+    Os'OpenFileOptions{
+      ...OpenFileOptions'Default(),
+      Create: true,
+      Write: true,
+      Truncate: true,
+    },
   )?
   Os'WriteFile(ctx, f, s)?
   Os'WriteFile(ctx, Os'StdOut(), s)?
