@@ -1,5 +1,8 @@
-import System'Os'OpenFileOptions
-import System'Os
+import System'Context { Context }
+import System'Directory
+import System'Environment
+import System'File
+import System'File'OpenOptions { OpenOptions }
 import Core'Number
 import Core'String
 
@@ -20,45 +23,45 @@ h = \(x number | error) number | error {
 }
 
 i = \(xs [number]) [number | none] {
-  [number | none; ...xs]
+  [number | none ...xs]
 }
 
-command = \(ctx Os'Context) none | error {
-  Os'WriteFile(ctx, Os'StdOut(), "Hello, world!\n")?
+command = \(ctx Context) none | error {
+  File'Write(ctx, File'StdOut(), "Hello, world!\n")?
 
-  f = Os'OpenFile(ctx, "./pen.json")?
-  s = Os'ReadFile(ctx, f)?
-  f = Os'OpenFileWithOptions(
+  f = File'Open(ctx, "./pen.json")?
+  s = File'Read(ctx, f)?
+  f = File'OpenWithOptions(
     ctx,
     "foo.json",
-    Os'OpenFileOptions{
-      ...OpenFileOptions'Default(),
+    OpenOptions{
+      ...OpenOptions'Default(),
       Create: true,
       Write: true,
       Truncate: true,
     },
   )?
-  Os'WriteFile(ctx, f, s)?
-  Os'WriteFile(ctx, Os'StdOut(), s)?
-  Os'WriteFile(ctx, Os'StdOut(), String'Join(Os'ReadDirectory(ctx, ".")?, "\n"))?
-  Os'CreateDirectory(ctx, "foo")?
-  Os'RemoveDirectory(ctx, "foo")?
-  v = Os'EnvironmentVariable(ctx, "PATH")?
-  Os'WriteFile(
+  File'Write(ctx, f, s)?
+  File'Write(ctx, File'StdOut(), s)?
+  File'Write(ctx, File'StdOut(), String'Join(Directory'Read(ctx, ".")?, "\n"))?
+  Directory'Create(ctx, "foo")?
+  Directory'Remove(ctx, "foo")?
+  v = Environment'Variable(ctx, "PATH")?
+  File'Write(
     ctx,
-    Os'StdOut(),
-    String'Join([string; v, "\n"], ""),
+    File'StdOut(),
+    String'Join([string v, "\n"], ""),
   )?
 
   none
 }
 
-main = \(ctx Os'Context) number {
+main = \(ctx Context) number {
   if e = command(ctx) as none {
     0
   } else {
     if s = source(e) as string {
-      Os'WriteFile(ctx, Os'StdOut(), String'Join([string; s, "\n"], ""))
+      File'Write(ctx, File'StdOut(), String'Join([string s, "\n"], ""))
       1
     } else {
       1
