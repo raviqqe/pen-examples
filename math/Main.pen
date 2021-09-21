@@ -11,6 +11,7 @@ main = \(ctx Context) number {
       [string
         Number'String(Number'Remainder(42, 5)),
         Number'String(Number'Power(2, 8)),
+        Number'String(Number'SquareRoot(4)),
       ],
       "\n"
     ),
