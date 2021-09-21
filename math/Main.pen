@@ -1,0 +1,20 @@
+import Core'Number
+import Core'String
+import System'Context { Context }
+import System'File
+
+main = \(ctx Context) number {
+  File'Write(
+    ctx,
+    File'StdOut(),
+    String'Join(
+      [string
+        Number'String(Number'Remainder(42, 5)),
+        Number'String(Number'Power(2, 8)),
+      ],
+      "\n"
+    ),
+  )
+
+  0
+}
