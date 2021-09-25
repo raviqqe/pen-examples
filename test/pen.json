@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "Test": "pen:///lib/test"
+  }
+}
