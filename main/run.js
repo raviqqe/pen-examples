@@ -5,16 +5,12 @@ import { WASI } from "wasi";
 const wasi = new WASI({
   args: argv,
   env,
-  preopens: {
-    "/": process.env.PWD,
-  },
+  preopens: { "/": process.env.PWD },
 });
 
 wasi.start(
   await WebAssembly.instantiate(
     await WebAssembly.compile(await readFile("./app")),
-    {
-      wasi_snapshot_preview1: wasi.wasiImport,
-    }
+    { wasi_snapshot_preview1: wasi.wasiImport }
   )
 );
