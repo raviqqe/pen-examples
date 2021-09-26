@@ -1,9 +1,9 @@
 import System'Context { Context }
-import System'Directory
 import Core'String
 
 command = \(ctx Context) none | error {
-  String'Join(Directory'Read(ctx, ".")?, "")
+  s = String'Join([string "foo", ""], "")
+  String'Join([string s], "")
 
   command(ctx)
 }
