@@ -5,4 +5,7 @@ set -ex
 rm -rf .pen app foo.json foo
 pen build --target wasm32-wasi
 wasm2wat --enable-tail-call app >app.wat
-wasmtime --wasm-features all --dir . --env PATH=$PATH -g app
+node \
+  --experimental-wasi-unstable-preview1 \
+  --experimental-wasm-return_call \
+  run.mjs
