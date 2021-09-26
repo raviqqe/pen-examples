@@ -3,7 +3,12 @@ import Core'String
 
 command = \(ctx Context) none | error {
   s = String'Join([string "foo", ""], "")
-  String'Join([string s], "")
+
+  if [s, ..._] = [string s] {
+    s()
+  } else {
+    none
+  }
 
   command(ctx)
 }
