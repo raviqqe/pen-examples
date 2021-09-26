@@ -1,22 +1,25 @@
 import System'Context { Context }
-import Core'String
 
-command = \(ctx Context) none | error {
-  s = String'Join([string "foo", ""], "")
+type foo {
+  x number
+  y number
+  z number
+}
 
-  if [s, ..._] = [string s] {
-    s()
+run = \(ctx Context) none | error {
+  x = foo{x: 42, y: 42, z: 42}
+
+  if [x, ..._] = [foo x] {
+    x()
   } else {
     none
   }
 
-  command(ctx)
+  run(ctx)
 }
 
 main = \(ctx Context) number {
-  if e = command(ctx) as none {
-    0
-  } else {
-    1
-  }
+  run(ctx)
+
+  1
 }
