@@ -12,9 +12,7 @@ const wasi = new WASI({
 
 wasi.start(
   await WebAssembly.instantiate(
-    await WebAssembly.compile(
-      await readFile(new URL("./app", import.meta.url))
-    ),
+    await WebAssembly.compile(await readFile("./app")),
     {
       wasi_snapshot_preview1: wasi.wasiImport,
     }
