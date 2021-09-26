@@ -1,0 +1,8 @@
+import Test'Context { Context }
+import Test'Assert
+
+import 'Add { Add }
+
+TestAdd = \(ctx Context) none | error {
+  Assert'True(ctx, Add(42, 2) == 42)
+}
