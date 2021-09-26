@@ -1,0 +1,17 @@
+import System'Context { Context }
+import System'Directory
+import Core'String
+
+command = \(ctx Context) none | error {
+  String'Join(Directory'Read(ctx, ".")?, "")
+
+  command(ctx)
+}
+
+main = \(ctx Context) number {
+  if e = command(ctx) as none {
+    0
+  } else {
+    1
+  }
+}
