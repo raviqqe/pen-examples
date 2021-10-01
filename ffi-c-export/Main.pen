@@ -1,0 +1,20 @@
+import System'Context { Context }
+import System'File
+import Core'Number
+import Core'String
+
+import foreign "c" _pen_add2 \(number, number) number
+
+foreign "c" _pen_add1 = \(x number, y number) number {
+  x - y
+}
+
+main = \(ctx Context) number {
+  File'Write(
+    ctx,
+    File'StdOut(),
+    String'Join([string "Result:", Number'String(_pen_add2(42, 13)), "\n"], " "),
+  )
+
+  0
+}
