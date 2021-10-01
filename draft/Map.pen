@@ -1,0 +1,21 @@
+import Core'Map { Map }
+
+type Foo {
+  x number
+}
+
+type FooMap {
+  map Map
+}
+
+Get = \(map FooMap, id string) Foo | none {
+  if x = Map'Get(map.map) as Foo {
+		x
+  } else {
+		none
+	}
+}
+
+Set = \(map FooMap, id string, foo Foo) FooMap {
+  FooMap{map: Map'Set(map.map, id, foo)}
+}
