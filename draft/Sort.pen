@@ -1,0 +1,29 @@
+SortNumbers = \(ns [number]) [number] {
+  ...
+}
+
+SortStrings = \(ss [string]) [string] {
+  ...
+}
+
+SortNumbersByFunction = \(
+  ss [number],
+	compare \(number, number) number,
+) [number] {
+  ...
+}
+
+SortStringsByFunction = \(
+  ss [string],
+	compare \(string, string) number,
+) [string] {
+  ...
+}
+
+# - generic built-in function
+# - list comprehension
+#   - e.g. [xs by \(x number, y number) nubmer { number - number }]
+#   - map and filter too?
+# - generic map types
+# - do nothing
+#   - O(n^2) sort
