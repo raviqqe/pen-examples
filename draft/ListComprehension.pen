@@ -1,0 +1,11 @@
+map = \(xs [foo]) [bar] {
+	[bar convert(x) for x in xs]
+}
+
+filter = \(xs [foo]) [bar] {
+	[bar x for x in xs if condition(x)]
+}
+
+filterType = \(xs [foo | none]) [foo] {
+	[foo x for x in xs as foo]
+}

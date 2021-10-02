@@ -13,3 +13,20 @@ Filter = \(xs [foo]) [foo] {
     [foo]
   }
 }
+
+Unique = \(xs [foo]) [foo] {
+  uniqueWithIds(xs, StringSet'Empty())
+}
+
+uniqueWithIds = \(xs [foo], ids StringSet) [foo] {
+  if [x, ...xs] = xs {
+    id = Foo'Id(x)
+
+    [foo
+      ...if StringSet'Include(ids, id) { [foo x] } else { [foo] },
+      ...uniqueWithIds(xs, StringSet'Add(ids, id))
+    ]
+  } else {
+    [foo]
+  }
+}
