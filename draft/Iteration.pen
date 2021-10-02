@@ -6,10 +6,10 @@ Map = \(xs [foo]) [bar] {
   }
 }
 
-Filter = \(xs [foo]) [bar] {
+Filter = \(xs [foo]) [foo] {
   if [x, ...xs] = xs {
-    [bar convertFoo(x), ...Filter(xs)]
+    [foo ...if condition(x) { [foo x] } else { [foo] }, ...Filter(xs)]
   } else {
-    [bar]
+    [foo]
   }
 }
