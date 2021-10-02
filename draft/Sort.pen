@@ -33,7 +33,7 @@ SortAnys = \(xs [any], \(any, any) number) [any] {
 #   - O(n^2) sort
 
 SortFoo = \(xs [foo]) [foo] {
-  # Downcasting generic lists.
+  # Downcasting generic lists filtering them by types.
   [foo
     ...SortAnys(
       [any ...xs],
