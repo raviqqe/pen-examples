@@ -9,3 +9,7 @@ filter = \(xs [foo]) [bar] {
 filterType = \(xs [foo | none]) [foo] {
 	[foo x for x in xs as foo]
 }
+
+flatten = \(xss [[foo]]) [foo] {
+	[foo y for x in xs for y in x]
+}
