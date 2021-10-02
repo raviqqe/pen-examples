@@ -1,0 +1,15 @@
+Map = \(xs [foo]) [bar] {
+  if [x, ...xs] = xs {
+    [bar convertFoo(x), ...Map(xs)]
+  } else {
+    [bar]
+  }
+}
+
+Filter = \(xs [foo]) [bar] {
+  if [x, ...xs] = xs {
+    [bar convertFoo(x), ...Filter(xs)]
+  } else {
+    [bar]
+  }
+}

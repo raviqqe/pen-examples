@@ -51,11 +51,3 @@ SortFoo = \(xs [foo]) [foo] {
     ),
   ]
 }
-
-Map = \(xs [foo]) [bar] {
-  if [x, ...xs] = xs {
-    [bar convertFoo(x)]
-  } else {
-    [bar]
-  }
-}
