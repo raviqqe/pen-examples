@@ -21,11 +21,13 @@ Unique = \(xs [foo]) [foo] {
 uniqueWithIds = \(xs [foo], ids StringSet) [foo] {
   if [x, ...xs] = xs {
     id = Foo'Id(x)
+    xs = uniqueWithIds(xs, StringSet'Add(ids, id))
 
-    [foo
-      ...if StringSet'Include(ids, id) { [foo x] } else { [foo] },
-      ...uniqueWithIds(xs, StringSet'Add(ids, id))
-    ]
+    if StringSet'Include(ids, id) {
+      xs
+    } else {
+      [foo x, ...xs]
+    }
   } else {
     [foo]
   }
