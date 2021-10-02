@@ -20,7 +20,7 @@ SortStringsByFunction = \(
   ...
 }
 
-SortAnys = \(xs [any], \(any, any) number) [any] {
+Sort = \(xs [any], \(any, any) number) [any] {
   ...
 }
 
@@ -35,7 +35,7 @@ SortAnys = \(xs [any], \(any, any) number) [any] {
 SortFoo = \(xs [foo]) [foo] {
   # Downcasting generic lists filtering them by types.
   [foo
-    ...SortAnys(
+    ...Sort(
       [any ...xs],
       \(x any, y any) number {
         if x = x as foo {
