@@ -1,0 +1,7 @@
+import Test'Assert
+
+import 'Add { Add }
+
+TestAdd = \() none | error {
+  Assert'True(Add(42, 2) == 42)
+}
