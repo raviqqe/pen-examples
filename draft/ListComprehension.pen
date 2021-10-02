@@ -1,15 +1,15 @@
 map = \(xs [foo]) [bar] {
-	[bar convert(x) for x in xs]
+  [bar convert(x) for x in xs]
 }
 
 filter = \(xs [foo]) [bar] {
-	[bar x for x in xs if condition(x)]
+  [bar x for x in xs if condition(x)]
 }
 
 filterType = \(xs [foo | none]) [foo] {
-	[foo x for x in xs as foo]
+  [foo x for x in xs as foo]
 }
 
 flatten = \(xss [[foo]]) [foo] {
-	[foo y for x in xs for y in x]
+  [foo y for x in xs for y in x]
 }
