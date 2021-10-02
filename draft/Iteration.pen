@@ -14,14 +14,33 @@ Filter = \(xs [foo]) [foo] {
   }
 }
 
-Unique = \(xs [foo]) [foo] {
-  uniqueWithIds(xs, StringSet'Empty())
+UniqueByString = \(xs [any], \(any) string | none) [any] {
+  ...
 }
 
-uniqueWithIds = \(xs [foo], ids StringSet) [foo] {
+UniqueFoos = \(xs [foo]) [foo] {
+  [foo
+    ...UniqueWithStrings(
+      [any ...xs],
+      \(x any) string | none {
+        if x = x as foo {
+          Foo'Id(x)
+        } else {
+          none
+        }
+      },
+    ),
+  ]
+}
+
+UniqueFoosNaive = \(xs [foo]) [foo] {
+  uniqueFoosWithIds(xs, StringSet'Empty())
+}
+
+uniqueFoosWithIds = \(xs [foo], ids StringSet) [foo] {
   if [x, ...xs] = xs {
     id = Foo'Id(x)
-    xs = uniqueWithIds(xs, StringSet'Add(ids, id))
+    xs = uniqueFoosWithIds(xs, StringSet'Add(ids, id))
 
     if StringSet'Include(ids, id) {
       xs
