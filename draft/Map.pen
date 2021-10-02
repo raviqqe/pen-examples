@@ -10,10 +10,10 @@ type FooMap {
 
 Get = \(map FooMap, id string) Foo | none {
   if x = Map'Get(map.map) as Foo {
-		x
+    x
   } else {
-		none
-	}
+    none
+  }
 }
 
 Set = \(map FooMap, id string, foo Foo) FooMap {
