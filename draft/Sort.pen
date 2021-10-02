@@ -8,14 +8,14 @@ SortStrings = \(ss [string]) [string] {
 
 SortNumbersByFunction = \(
   ss [number],
-	compare \(number, number) number,
+  compare \(number, number) number,
 ) [number] {
   ...
 }
 
 SortStringsByFunction = \(
   ss [string],
-	compare \(string, string) number,
+  compare \(string, string) number,
 ) [string] {
   ...
 }
