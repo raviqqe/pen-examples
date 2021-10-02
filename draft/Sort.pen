@@ -20,6 +20,10 @@ SortStringsByFunction = \(
   ...
 }
 
+SortAnys = \(xs [any], \(any, any) number) [any] {
+  ...
+}
+
 # - generic built-in function
 # - list comprehension
 #   - e.g. [xs by \(x number, y number) nubmer { number - number }]
@@ -27,3 +31,31 @@ SortStringsByFunction = \(
 # - generic map types
 # - do nothing
 #   - O(n^2) sort
+
+SortFoo = \(xs [foo]) [foo] {
+  # Downcasting generic lists.
+  [foo
+    ...SortAnys(
+      [any ...xs],
+      \(x any, y any) number {
+        if x = x as foo {
+          if y = y as foo {
+            x.age - y.age
+          } else {
+            0
+          }
+        } else {
+          0
+        }
+      },
+    ),
+  ]
+}
+
+Map = \(xs [foo]) [bar] {
+  if [x, ...xs] = xs {
+    [bar convertFoo(x)]
+  } else {
+    [bar]
+  }
+}
