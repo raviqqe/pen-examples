@@ -1,0 +1,27 @@
+import Core'Number
+import Core'String
+import System'Context { Context }
+import System'File
+
+main = \(ctx Context) number {
+  if _ = run(ctx) as none {
+    0
+  } else {
+    1
+  }
+}
+
+run = \(ctx Context) none | error {
+  s = Number'String(42)
+
+  print(ctx, s)?
+  print(ctx, s)?
+
+  run(ctx)
+}
+
+print = \(ctx Context, s string) none | error {
+  File'Write(ctx, File'StdOut(), String'Join([string s, "\n"], ""))?
+
+  none
+}
