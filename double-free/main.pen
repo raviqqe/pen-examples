@@ -3,21 +3,28 @@ import Core'String
 import System'Context { Context }
 import System'File
 
+type Bar {
+  value number
+}
+
+type Foo {
+  Bar Bar
+  Message string
+}
+
 main = \(ctx Context) number {
-  if _ = run(ctx) as none {
+  if _ = run(ctx, Foo{Bar: Bar{value: 42}, Message: "Hello"}) as none {
     0
   } else {
     1
   }
 }
 
-run = \(ctx Context) none | error {
-  s = Number'String(42)
+run = \(ctx Context, x Foo) none | error {
+  print(ctx, x.Message)?
+  print(ctx, x.Message)?
 
-  print(ctx, s)?
-  print(ctx, s)?
-
-  run(ctx)
+  run(ctx, x)
 }
 
 print = \(ctx Context, s string) none | error {
