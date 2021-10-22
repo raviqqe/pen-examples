@@ -1,0 +1,8 @@
+import System'File
+import System'Context { Context }
+
+main = \(ctx Context) number {
+  File'Write(ctx, File'StdOut(), "Hello, world!\n")
+
+  0
+}

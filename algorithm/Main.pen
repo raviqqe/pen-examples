@@ -1,7 +1,0 @@
-import System'Os
-
-main = \(ctx Os'Context) number {
-  Os'WriteFile(ctx, Os'StdOut(), "Hello, world!\n")
-
-  0
-}
