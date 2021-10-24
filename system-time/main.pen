@@ -1,0 +1,18 @@
+import Core'Number
+import System'Context { Context }
+import System'File
+import System'Time
+
+run = \(ctx Context) none | error {
+  File'Write(ctx, File'StdOut(), Number'String(Time'Now(ctx)))?
+
+  none
+}
+
+main = \(ctx Context) number {
+  if m = run(ctx) as none {
+    0
+  } else {
+    1
+  }
+}
