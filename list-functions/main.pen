@@ -1,0 +1,11 @@
+import System'Context { Context }
+
+main = \(ctx Context) number {
+  if [x, ..._] = [any "foo"] {
+    x()
+  } else {
+    none
+  }
+
+  0
+}
