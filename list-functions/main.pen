@@ -2,7 +2,7 @@ import System'Context { Context }
 
 main = \(ctx Context) number {
   if [x, ..._] = [any "foo"] {
-    x()
+    debug(if s = x() as string { s } else { "unknown type" })
   } else {
     none
   }
