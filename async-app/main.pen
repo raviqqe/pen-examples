@@ -1,0 +1,5 @@
+import System'Context { Context }
+
+main = \(ctx Context) number {
+  0
+}
