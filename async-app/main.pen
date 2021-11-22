@@ -1,5 +1,17 @@
 import System'Context { Context }
+import System'File
 
 main = \(ctx Context) number {
-  0
+  if _ = run(ctx) as none {
+    0
+  } else {
+    1
+  }
+}
+
+run = \(ctx Context) none | error {
+  s = File'Read(ctx, File'StdIn())?
+  #File'Write(ctx, File'StdOut(), s)?
+
+  none
 }
