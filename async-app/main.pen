@@ -11,7 +11,7 @@ main = \(ctx Context) number {
 
 run = \(ctx Context) none | error {
   s = File'Read(ctx, File'StdIn())?
-  #File'Write(ctx, File'StdOut(), s)?
+  File'Write(ctx, File'StdOut(), s)?
 
   none
 }
