@@ -3,7 +3,7 @@
 set -e
 
 for index in $(seq 100000); do
-  result=$(valgrind --leak-check=full --output=valgrind.log ./app)
+  result=$(valgrind --leak-check=full --log-file=valgrind.log ./app)
 
   echo $index: "'$result'"
 
