@@ -1,0 +1,18 @@
+import System'Context { Context }
+import System'File
+
+readFile = \(ctx Context) none | error {
+  f = File'Open(ctx, "foo.txt")?
+  d = File'ReadLimit(ctx, f, 5)?
+  File'Write(ctx, File'StdOut(), d)?
+
+  none
+}
+
+main = \(ctx Context) number {
+  if _ = readFile(ctx) as none {
+    0
+  } else {
+    1
+  }
+}
