@@ -1,0 +1,16 @@
+import System'Context { Context }
+import System'File
+
+main = \(ctx Context) number {
+  if _ = run(ctx) as none {
+    0
+  } else {
+    1
+  }
+}
+
+run = \(ctx Context) none | error {
+  File'Write(ctx, File'StdOut(), "Hello, world!\n")?
+
+  none
+}
