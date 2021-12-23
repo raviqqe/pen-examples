@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "System": "pen:///os-async"
+    "System": "pen:///os"
   }
 }
