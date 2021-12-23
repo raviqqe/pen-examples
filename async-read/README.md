@@ -12,6 +12,9 @@ Async file read with the `os` package somtimes fail for no reason.
 
 ```sh
 > ./main.sh
+
+...
+
 801: 'Hello'
 802: 'Hello'
 803: 'Hello'
