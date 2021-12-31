@@ -5,16 +5,8 @@ import System'File'OpenOptions
 readFile = \(ctx Context) none | error {
   f = File'Open(ctx, "foo.txt")?
   d = File'Read(ctx, f)?
-  f = File'OpenWithOptions(
-    ctx,
-    "bar.txt",
-    OpenOptions{
-      ...OpenOptions'Default(),
-      Create: true,
-      Write: true,
-    },
-  )?
-  File'Write(ctx, f, d)?
+
+  File'Write(ctx, File'StdOut(), d)?
 
   none
 }
