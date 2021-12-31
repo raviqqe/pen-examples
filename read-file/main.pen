@@ -1,8 +1,28 @@
 import System'Context { Context }
 import System'File
+import System'File'OpenOptions
+
+readFile = \(ctx Context) none | error {
+  f = File'Open(ctx, "foo.txt")?
+  d = File'Read(ctx, f)?
+  f = File'OpenWithOptions(
+    ctx,
+    "bar.txt",
+    OpenOptions{
+      ...OpenOptions'Default(),
+      Create: true,
+      Write: true,
+    },
+  )?
+  File'Write(ctx, f, d)?
+
+  none
+}
 
 main = \(ctx Context) number {
-  File'Write(ctx, File'StdOut(), "Hello, world!\n")
-
-  0
+  if _ = readFile(ctx) as none {
+    0
+  } else {
+    1
+  }
 }
