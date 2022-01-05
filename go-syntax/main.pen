@@ -2,11 +2,11 @@ import System'Context { Context }
 import System'File
 
 main = \(ctx Context) number {
-  f = go \() any {
+  f = go \() number {
     File'Write(ctx, File'StdOut(), "Hello, world!\n")
+
+    42
   }
 
   f()
-
-  0
 }
