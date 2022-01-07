@@ -1,0 +1,30 @@
+import Core'Number
+import Core'String
+import System'Context { Context }
+import System'File
+
+main = \(ctx Context) number {
+  sayMany(ctx, 100)
+
+  0
+}
+
+sayMany = \(ctx Context, count number) none | error {
+  if count == 0 {
+    none
+  } else {
+    f = go \() none | error {
+      File'Write(
+        ctx,
+        File'StdOut(),
+        String'Join([string Number'String(count), "\n"], ""),
+      )?
+
+      none
+    }
+
+    f()
+
+    sayMany(ctx, count - 1)
+  }
+}
