@@ -1,5 +1,5 @@
 foo = \(_ [[none]]) [[none]] {
-  x= [[none]]
+  x = [none]
 
   [[none]
     (\(x [none]) [none] {
