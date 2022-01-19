@@ -1,0 +1,13 @@
+import Core'Number
+import Core'String
+import System'File
+
+main = \(ctx Context) number {
+  File'Write(
+    ctx,
+    File'StdOut(),
+    String'Join([string Number'String(n()) for n in [number 1, 2, 3]], " "),
+  )
+
+  0
+}

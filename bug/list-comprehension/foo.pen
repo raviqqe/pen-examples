@@ -1,0 +1,5 @@
+foo = \() [none] {
+  x = [none]
+
+  [none \(x none) none { x }(none)]
+}
