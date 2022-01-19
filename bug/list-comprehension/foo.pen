@@ -1,0 +1,23 @@
+join = \(_ [string]) string { "" }
+
+foo = \(xs [[boolean]]) [string] {
+  (\(list [[boolean]]) [string] {
+    if [x, ...list] = list {
+      [string
+        join(
+          (\(list [boolean]) [string] {
+            if [y, ...list] = list {
+              [string
+                if y() { "o" } else { "." },
+              ]
+            } else {
+              [string]
+            }
+          })(x())
+        ),
+      ]
+    } else {
+      [string]
+    }
+  })(xs)
+}
