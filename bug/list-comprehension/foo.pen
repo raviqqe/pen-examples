@@ -1,9 +1,9 @@
-foo = \(_ [[none]]) [[none]] {
+foo = \(_ [[none]]) [none] {
   x = [none]
 
-  [[none]
-    (\(x [none]) [none] {
+  [none
+    (\(x none) none {
       x
-    })([none]),
+    })(none),
   ]
 }
