@@ -1,4 +1,4 @@
-foo = \(_ [[none]]) [none] {
+foo = \() [none] {
   x = [none]
 
   [none
