@@ -1,13 +1,11 @@
 foo = \(_ [[none]]) [[none]] {
-  (\(xs [[none]]) [[none]] {
-    if [_, ...xs] = [[none]] {
-      [[none]
-        (\(xs [none]) [none] {
-          xs
-        })([none]),
-      ]
-    } else {
-      [[none]]
-    }
-  })([[none]])
+  if [_, ...xs] = [[none]] {
+    [[none]
+      (\(xs [none]) [none] {
+        xs
+      })([none]),
+    ]
+  } else {
+    [[none]]
+  }
 }
