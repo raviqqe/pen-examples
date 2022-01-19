@@ -1,17 +1,13 @@
-foo = \(xs [[boolean]]) [[string]] {
-  (\(list [[boolean]]) [[string]] {
-    if [_, ...list] = list {
-      [[string]
-        (\(list [boolean]) [string] {
-          if [_, ...list] = list {
-            [string]
-          } else {
-            [string]
-          }
-        })([boolean]),
+foo = \(_ [[none]]) [[none]] {
+  (\(xs [[none]]) [[none]] {
+    if [_, ...xs] = [[none]] {
+      [[none]
+        (\(xs [none]) [none] {
+          xs
+        })([none]),
       ]
     } else {
-      [[string]]
+      [[none]]
     }
-  })(xs)
+  })([[none]])
 }
