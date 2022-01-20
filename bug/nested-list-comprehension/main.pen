@@ -1,7 +1,7 @@
 import System'Context
 
 main = \(ctx Context) number {
-  [none x() for x in [none y() for y in [none none]]]
+  [none none for _ in [none none for _ in [none none]]]
 
   0
 }
