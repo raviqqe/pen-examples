@@ -37,8 +37,6 @@ TestMapGet = \() none | error {
   Assert'True(stringMap'Get(m, key) == value)
 }
 
-TestMapFailGet = \() none | error {
-  m = stringMap'Set(stringMap'New(), "foo", "")
-
-  Assert'EqualNumbers(stringMap'Size(m), 2)
+TestMapGetFail = \() none | error {
+  Assert'True(stringMap'Get(stringMap'New(), "foo") == none)
 }
