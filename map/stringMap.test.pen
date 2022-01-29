@@ -1,0 +1,6 @@
+import Core'Map
+import Test'Assert
+
+TestMapSet = \() none | error {
+  Map
+}
