@@ -44,8 +44,9 @@ TestMapGetFail = \() none | error {
 
 TestMapSetManyTimes = \() none | error {
   n = 4
-  m = setMany(stringMap'New(), 4)
+  m = setMany(stringMap'New(), n)
 
+  Assert'EqualNumbers(stringMap'Size(m), n)
   assertMany(m, n)
 }
 
