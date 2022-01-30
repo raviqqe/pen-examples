@@ -55,7 +55,7 @@ assertMany = \(m stringMap'StringMap, n number) none | error {
     none
   } else {
     s = Number'String(n)
-    Assert'True(stringMap'Get(m, s) == s)
+    Assert'True(stringMap'Get(m, s) == s)?
     assertMany(m, n - 1)
   }
 }
