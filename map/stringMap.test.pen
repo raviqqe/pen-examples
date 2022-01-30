@@ -1,4 +1,5 @@
 import Core'Map
+import Core'Number
 import Test'Assert
 import 'stringMap
 
@@ -39,4 +40,30 @@ TestMapGet = \() none | error {
 
 TestMapGetFail = \() none | error {
   Assert'True(stringMap'Get(stringMap'New(), "foo") == none)
+}
+
+TestMapSetManyTimes = \() none | error {
+  n = 4
+  m = setMany(stringMap'New(), 4)
+
+  assertMany(m, n)
+}
+
+assertMany = \(m stringMap'StringMap, n number) none | error {
+  if n == 0 {
+    none
+  } else {
+    s = Number'String(n)
+    Assert'True(stringMap'Get(m, s) == s)
+    assertMany(m, n - 1)
+  }
+}
+
+setMany = \(m stringMap'StringMap, n number) stringMap'StringMap {
+  if n == 0 {
+    m
+  } else {
+    s = Number'String(n)
+    setMany(stringMap'Set(m, s, s), n - 1)
+  }
 }
