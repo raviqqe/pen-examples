@@ -1,0 +1,8 @@
+import System'Context { Context }
+import 'stringMap
+
+main = \(ctx Context) number {
+  stringMap'Set(stringMap'New(), "", "")
+
+  0
+}
