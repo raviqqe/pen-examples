@@ -5,7 +5,7 @@ import Core'Number
 import Core'String
 
 main = \(ctx context) none {
-  checkResults(ctx.Os, spawnMany(ctx.Os, 100, [none | error]))
+  checkResults(ctx.Os, spawnMany(ctx.Os, 1000000, [none | error]))
 }
 
 checkResults = \(ctx Context, xs [none | error]) none {
