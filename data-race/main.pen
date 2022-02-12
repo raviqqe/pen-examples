@@ -1,0 +1,36 @@
+import Os'File
+import Os'Context { Context }
+import Os'Process
+import Core'Number
+import Core'String
+
+main = \(ctx context) none {
+  checkResults(ctx.Os, spawnMany(ctx.Os, 100, [none | error]))
+}
+
+checkResults = \(ctx Context, xs [none | error]) none {
+  if [x, ...xs] = xs {
+    if x = x() as none {
+      checkResults(ctx, xs)
+    } else {
+      File'Write(ctx, File'StdOut(), "Oh, my my!\n")
+      Process'Exit(ctx, 1)
+    }
+  } else {
+    none
+  }
+}
+
+spawnMany = \(ctx Context, i number, results [none | error]) [none | error] {
+  f = go \() none | error {
+    File'Write(ctx, File'StdOut(), String'Join([string Number'String(i), "\n"], ""))?
+
+    none
+  }
+
+  if i > 0 {
+    spawnMany(ctx, i - 1, [none | error f(), ...results])
+  } else {
+    results
+  }
+}
