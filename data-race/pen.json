@@ -1,7 +1,7 @@
 {
+  "type": "application",
   "dependencies": {
     "Core": "pen:///core",
     "Os": "pen:///os"
-  },
-  "system": null
+  }
 }
