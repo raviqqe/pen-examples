@@ -1,6 +1,6 @@
 {
   "type": "application",
   "dependencies": {
-    "Os": "pen:///os"
+    "Os": "pen:///os-sync"
   }
 }
