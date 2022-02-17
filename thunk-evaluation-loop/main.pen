@@ -1,15 +1,12 @@
-xs = \() [number] { [number 42] }
-
 main = \(ctx context) none {
-  loop(xs())
+  loop()
 
   none
 }
 
-loop = \(xs [number]) none {
-  if [x, ..._] = xs {
-    x()
-    loop(xs)
+loop = \() none {
+  if [_, ..._] = [none none] {
+    loop()
   } else {
     none
   }
