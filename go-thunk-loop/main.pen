@@ -1,0 +1,12 @@
+main = \(ctx context) none {
+  loop()
+
+  none
+}
+
+loop = \() none {
+  f = go \() number { 42 }
+
+  f()
+  loop()
+}
