@@ -5,7 +5,8 @@ main = \(ctx context) none {
 }
 
 loop = \() none {
-  if true {
+  if [x, ..._] = [none none] {
+    x()
     loop()
   } else {
     none
