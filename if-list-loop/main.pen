@@ -1,0 +1,14 @@
+main = \(ctx context) none {
+  loop()
+
+  none
+}
+
+loop = \() none {
+  if [x, ..._] = [none none] {
+    x()
+    loop()
+  } else {
+    none
+  }
+}
