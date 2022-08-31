@@ -13,11 +13,11 @@ main = \(ctx context) none {
             String'Join(
               [string
                 Number'String(x()),
-                Number'String(y()),
+                y(),
               ],
               ",",
             )
-            for y in Number'Sequence(10)
+            for y in sequence(10)
           ],
           " ",
         )
@@ -27,4 +27,8 @@ main = \(ctx context) none {
     ),
   )
   none
+}
+
+sequence = \(n number) [string] {
+  [string Number'String(x()) for x in Number'Sequence(n)]
 }
