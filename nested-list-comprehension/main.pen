@@ -8,16 +8,18 @@ main = \(ctx context) none {
     File'StdOut(),
     String'Join(
       [string
-        String'Concatenante(
+        String'Join(
           [string
-            String'Concatenante(
+            String'Join(
               [string
                 Number'String(x()),
                 Number'String(y()),
               ],
+              ",",
             )
             for y in Number'Sequence(10)
           ],
+          " ",
         )
         for x in Number'Sequence(10)
       ],
