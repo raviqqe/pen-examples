@@ -1,0 +1,28 @@
+import Core'Number
+import Core'String
+import Os'File
+
+main = \(ctx context) none {
+  _ = File'Write(
+    ctx.Os,
+    File'StdOut(),
+    String'Join(
+      [string
+        String'Concatenante(
+          [string
+            String'Concatenante(
+              [string
+                Number'String(x()),
+                Number'String(y()),
+              ],
+            )
+            for y in Number'Sequence(10)
+          ],
+        )
+        for x in Number'Sequence(10)
+      ],
+      "\n",
+    ),
+  )
+  none
+}
