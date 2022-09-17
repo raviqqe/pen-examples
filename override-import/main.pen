@@ -1,0 +1,7 @@
+import 'foo { Foo }
+
+Foo = \() none { Foo() }
+
+main = \(ctx context) none {
+  none
+}
