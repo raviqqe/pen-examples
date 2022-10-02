@@ -1,7 +1,5 @@
 import Os'File
 
 main = \(ctx context) none {
-  _ = File'Write(ctx.Os, File'StdOut(), "Hello, world!\n")
-
-  none
+  debug([none])
 }
