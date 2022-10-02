@@ -3,6 +3,7 @@
 *.json
 *.log
 *.o
+*.s
 *.wasm
 *.wat
 !pen.json
