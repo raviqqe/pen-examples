@@ -5,6 +5,7 @@ import Os'Directory
 import Os'Environment
 import Os'File
 import Os'File'OpenOptions { OpenOptions }
+import Os'Process
 
 f = \() none | error {
   error("oh no")
@@ -56,14 +57,13 @@ command = \(ctx Context) none | error {
   none
 }
 
-main = \(ctx context) number {
+main = \(ctx context) none {
   ctx = ctx.Os
 
   if e = command(ctx) as none {
-    0
+    none
   } else {
-    debug(e)
-
-    1
+    debug(source(e))
+    Process'Exit(ctx, 1)
   }
 }
