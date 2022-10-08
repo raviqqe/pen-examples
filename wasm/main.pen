@@ -1,10 +1,10 @@
-import System'Context { Context }
-import System'Directory
-import System'Environment
-import System'File
-import System'File'OpenOptions { OpenOptions }
 import Core'Number
 import Core'String
+import Os'Context { Context }
+import Os'Directory
+import Os'Environment
+import Os'File
+import Os'File'OpenOptions { OpenOptions }
 
 f = \() none | error {
   error("oh no")
