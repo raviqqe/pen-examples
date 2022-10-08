@@ -56,7 +56,7 @@ command = \(ctx Context) none | error {
   none
 }
 
-main = \(ctx Context) number {
+main = \(ctx context) number {
   ctx = ctx.Os
 
   if e = command(ctx) as none {
