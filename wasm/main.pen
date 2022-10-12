@@ -1,10 +1,11 @@
-import System'Context { Context }
-import System'Directory
-import System'Environment
-import System'File
-import System'File'OpenOptions { OpenOptions }
 import Core'Number
 import Core'String
+import Os'Context { Context }
+import Os'Directory
+import Os'Environment
+import Os'File
+import Os'File'OpenOptions { OpenOptions }
+import Os'Process
 
 f = \() none | error {
   error("oh no")
@@ -56,15 +57,13 @@ command = \(ctx Context) none | error {
   none
 }
 
-main = \(ctx Context) number {
+main = \(ctx context) none {
+  ctx = ctx.Os
+
   if e = command(ctx) as none {
-    0
+    none
   } else {
-    if s = source(e) as string {
-      File'Write(ctx, File'StdOut(), String'Join([string s, "\n"], ""))
-      1
-    } else {
-      1
-    }
+    debug(source(e))
+    Process'Exit(ctx, 1)
   }
 }
