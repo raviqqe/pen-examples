@@ -11,9 +11,9 @@ f = \(xs [T]) [S] {
     [U
       ...if [y, ...ys] = e1(x()) {
         if [z, ...zs] = e2(y()) {
-          if z = z() as U {
-            if a {
-              [S e3(z()), ...f(zs)]
+          if z = z() as V {
+            if true {
+              [S e3(z), ...f(zs)]
             } else {
               [S]
             }
@@ -33,12 +33,12 @@ f = \(xs [T]) [S] {
   }
 }
 
-e1 = \(x T) U {
-  U{}
+e1 = \(x T) [U] {
+  [U]
 }
 
-e2 = \(x U) V {
-  V{}
+e2 = \(x U) [V | none] {
+  [V | none]
 }
 
 e3 = \(x V) S {

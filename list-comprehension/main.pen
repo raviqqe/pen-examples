@@ -1,8 +1,8 @@
 import Core'Number
 import Core'String
-import System'File
+import Os'File
 
-main = \(ctx context) number {
+main = \(ctx context) none {
   _ = File'Write(
     ctx.Os,
     File'StdOut(),
