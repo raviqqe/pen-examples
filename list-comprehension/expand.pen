@@ -8,26 +8,33 @@ type V {}
 
 f = \(xs [T]) [S] {
   if [x, ...xs] = xs {
-    [U
-      ...if [y, ...ys] = e1(x()) {
-        if [z, ...zs] = e2(y()) {
-          if z = z() as V {
-            if true {
-              [S e3(z), ...f(zs)]
-            } else {
-              [S]
-            }
-          } else {
-            [S]
-          }
-        } else {
-          [S]
-        }
+    [S ...g(e1(x())), ...f(xs)]
+  } else {
+    [S]
+  }
+}
+
+g = \(ys [U]) [S] {
+  if [y, ...ys] = ys {
+    [S ...h(e2(y())), ...g(ys)]
+  } else {
+    [S]
+  }
+}
+
+h = \(zs [V | none]) [S] {
+  if [z, ...zs] = zs {
+    if z = z() as V {
+      z = \() V { z }
+
+      if true {
+        [S e3(z()), ...h(zs)]
       } else {
-        [S]
-      },
-      ...f(xs),
-    ]
+        h(zs)
+      }
+    } else {
+      [S]
+    }
   } else {
     [S]
   }
@@ -42,5 +49,5 @@ e2 = \(x U) [V | none] {
 }
 
 e3 = \(x V) S {
-  V{}
+  S{}
 }
