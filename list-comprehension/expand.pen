@@ -1,0 +1,46 @@
+type T {}
+
+type S {}
+
+type U {}
+
+type V {}
+
+f = \(xs [T]) [S] {
+  if [x, ...xs] = xs {
+    [U
+      ...if [y, ...ys] = e1(x()) {
+        if [z, ...zs] = e2(y()) {
+          if z = z() as U {
+            if a {
+              [S e3(z()), ...f(zs)]
+            } else {
+              [S]
+            }
+          } else {
+            [S]
+          }
+        } else {
+          [S]
+        }
+      } else {
+        [S]
+      },
+      ...f(xs),
+    ]
+  } else {
+    [S]
+  }
+}
+
+e1 = \(x T) U {
+  U{}
+}
+
+e2 = \(x U) V {
+  V{}
+}
+
+e3 = \(x V) S {
+  V{}
+}
