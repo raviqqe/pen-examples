@@ -2,12 +2,12 @@ import Core'Number
 import Core'String
 import System'File
 
-main = \(ctx Context) number {
-  File'Write(
-    ctx,
+main = \(ctx context) number {
+  _ = File'Write(
+    ctx.Os,
     File'StdOut(),
     String'Join([string Number'String(n()) for n in [number 1, 2, 3]], " "),
   )
 
-  0
+  none
 }
