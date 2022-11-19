@@ -1,6 +1,7 @@
 {
+  "type": "application",
   "dependencies": {
     "Core": "pen:///core",
-    "System": "pen:///os-sync"
+    "Os": "pen:///os-sync"
   }
 }
