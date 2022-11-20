@@ -28,16 +28,10 @@ g = \(ys [U]) [S] {
 
 h = \(zs [V | none]) [S] {
   if [z, ...zs] = zs {
-    if z = z() as V {
-      z = \() V { z }
-
-      if c(z()) {
-        [S e3(z()), ...h(zs)]
-      } else {
-        h(zs)
-      }
+    if c(z()) {
+      [S e3(z()), ...h(zs)]
     } else {
-      [S]
+      h(zs)
     }
   } else {
     [S]
