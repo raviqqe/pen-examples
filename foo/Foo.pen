@@ -1,0 +1,5 @@
+type value = number | none
+
+f = \(rs [[any]]) [none] {
+  [none none for r in rs]
+}

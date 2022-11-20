@@ -6,6 +6,10 @@ type U {}
 
 type V {}
 
+a = \(xs [T]) [S] {
+  [S ...f(xs)]
+}
+
 f = \(xs [T]) [S] {
   if [x, ...xs] = xs {
     [S ...g(e1(x())), ...f(xs)]
