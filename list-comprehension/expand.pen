@@ -6,6 +6,10 @@ type U {}
 
 type V {}
 
+a = \(xs [T]) [S] {
+  [S ...f(xs)]
+}
+
 f = \(xs [T]) [S] {
   if [x, ...xs] = xs {
     [S ...g(e1(x())), ...f(xs)]
@@ -24,16 +28,10 @@ g = \(ys [U]) [S] {
 
 h = \(zs [V | none]) [S] {
   if [z, ...zs] = zs {
-    if z = z() as V {
-      z = \() V { z }
-
-      if true {
-        [S e3(z()), ...h(zs)]
-      } else {
-        h(zs)
-      }
+    if c(z()) {
+      [S e3(z()), ...h(zs)]
     } else {
-      [S]
+      h(zs)
     }
   } else {
     [S]
@@ -50,4 +48,8 @@ e2 = \(x U) [V | none] {
 
 e3 = \(x V) S {
   S{}
+}
+
+c = \(x V) boolean {
+  true
 }
