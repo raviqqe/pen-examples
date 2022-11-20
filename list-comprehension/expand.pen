@@ -6,6 +6,13 @@ type U {}
 
 type V {}
 
+[S 
+  e3(z())
+  for x in xs
+  for y in e1(x())
+  for z in e2(y()) if c(z())
+]
+
 a = \(xs [T]) [S] {
   [S ...f(xs)]
 }
