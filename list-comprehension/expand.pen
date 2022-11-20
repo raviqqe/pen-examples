@@ -31,7 +31,7 @@ h = \(zs [V | none]) [S] {
     if z = z() as V {
       z = \() V { z }
 
-      if true {
+      if c(z()) {
         [S e3(z()), ...h(zs)]
       } else {
         h(zs)
@@ -54,4 +54,8 @@ e2 = \(x U) [V | none] {
 
 e3 = \(x V) S {
   S{}
+}
+
+c = \(x V) boolean {
+  true
 }
