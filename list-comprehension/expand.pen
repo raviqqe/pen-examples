@@ -6,6 +6,13 @@ type U {}
 
 type V {}
 
+# [S
+#   e3(z())
+#   for x in xs
+#   for y in e1(x())
+#   for z in e2(y()) if c(z())
+# ]
+
 a = \(xs [T]) [S] {
   [S ...f(xs)]
 }
@@ -26,7 +33,7 @@ g = \(ys [U]) [S] {
   }
 }
 
-h = \(zs [V | none]) [S] {
+h = \(zs [V]) [S] {
   if [z, ...zs] = zs {
     if c(z()) {
       [S e3(z()), ...h(zs)]
@@ -42,8 +49,8 @@ e1 = \(x T) [U] {
   [U]
 }
 
-e2 = \(x U) [V | none] {
-  [V | none]
+e2 = \(x U) [V] {
+  [V]
 }
 
 e3 = \(x V) S {
